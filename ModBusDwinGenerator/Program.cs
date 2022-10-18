@@ -29,6 +29,7 @@ internal class Program
         var command06 = "06 ";
 
         var middle = "01 30 00 00 00 ";
+        var middle06 = "01 30 04 00 00 ";
 
         //dwin adress
 
@@ -86,7 +87,7 @@ internal class Program
             var converted06ModBusAdress = string.Join(" ", BitConverter.GetBytes(adressModBus).Reverse().Select(x => x.ToString("X2")));
             var converted06DwinAdress = string.Join(" ", BitConverter.GetBytes(adressDwin).Reverse().Select(x => x.ToString("X2")));
 
-            var command = start + command06 + middle + converted06DwinAdress + " " + converted06ModBusAdress + " " + end;
+            var command = start + command06 + middle06 + converted06DwinAdress + " " + converted06ModBusAdress + " " + end;
             result.Add(command);
 
             adressDwin += 2;
